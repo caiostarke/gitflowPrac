@@ -24,7 +24,7 @@ func init() {
 	}
 
 	ctx := context.Background()
-	client, err := mongo.Connect(ctx, options.Client().ApplyURI(os.Getenv("MONGO_URI")))
+	client, _ := mongo.Connect(ctx, options.Client().ApplyURI(os.Getenv("MONGO_URI")))
 	if err = client.Ping(context.TODO(), readpref.Primary()); err != nil {
 		log.Fatal(err)
 	}
